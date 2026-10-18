@@ -352,6 +352,10 @@ def encode_message(message: PacketMessageInput) -> PackedMessageBytes:
     if subject_bytes is None:
         raise PacketEncodeError(code="encode_error", field="subject")
 
+    # Packet wire text uses CR; base readers commonly return LF.
+    assembled_text = (
+        assembled_text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "\r")
+    )
     text_bytes = _encode_strict(assembled_text, codec)
     if text_bytes is None:
         raise PacketEncodeError(code="encode_error", field="body_text")

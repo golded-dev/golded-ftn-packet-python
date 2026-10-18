@@ -1,0 +1,23 @@
+name: CI
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  checks:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ['3.12', '3.13', '3.14']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e
+      - run: uv sync --no-sources --all-extras --python ${{ matrix.python }}
+      - run: uv run --no-sync ruff check .
+      - run: uv run --no-sync ruff format --check .
+      - run: uv run --no-sync mypy
+      - run: uv run --no-sync pytest -q
+      - run: uv build --no-sources
+      - run: uv run --no-sync twine check dist/*
+      - run: uv run --no-sync python scripts/verify_distribution.py
+      - run: uv run --no-sync python -m mypy.stubtest golded_ftn_packet --allowlist tests/stubtest-allowlist.txt
