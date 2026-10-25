@@ -62,7 +62,7 @@ def _write_exactly(stream: BinaryIO, data: bytes) -> None:
 
 
 def _validate_address(addr: FtnAddress, *, field: str) -> None:
-    if not (1 <= addr.zone <= 65535):
+    if addr.zone is None or not (1 <= addr.zone <= 65535):
         raise PacketEncodeError(code="invalid_address", field=field)
     if not (0 <= addr.net <= 65535):
         raise PacketEncodeError(code="invalid_address", field=field)

@@ -837,6 +837,16 @@ def test_encode_message_validation_errors() -> None:
         posted_at=datetime(2026, 10, 17, 12, 0, 0),
     )
 
+    with pytest.raises(PacketEncodeError) as missing_zone:
+        encode_message(
+            dataclasses.replace(
+                base_input,
+                from_address=FtnAddress.from_string("210/42"),
+            )
+        )
+    assert missing_zone.value.code == "invalid_address"
+    assert missing_zone.value.field == "from_address"
+
     # Aware datetime rejected
     with pytest.raises(PacketEncodeError) as exc_info:
         encode_message(
