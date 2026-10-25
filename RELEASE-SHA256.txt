@@ -1,0 +1,2 @@
+8a10e0906357799d78088d163fd8bef962ea9d36de09e400eca1ea10921339c4  dist/golded_ftn_packet-1.0.0-py3-none-any.whl
+a16a8e48db1cbf21d662a1ca7c42bb9a5fe1ae3d25b6520a4253a161741989a1  dist/golded_ftn_packet-1.0.0.tar.gz
