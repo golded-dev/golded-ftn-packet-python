@@ -10,7 +10,7 @@ Streaming Fidonet Technology Network (FTN) Type-2 (`FTS-0001.016`) and Type-2+ (
 - **Deterministic serialization (`encode_message`, `write_packet`)**: Emits Type-2+ (`FSC-0048.002`) packet headers and canonical netmail/echomail control paragraphs (`AREA:` always on line 1 for echomail, followed immediately by `TZUTC` and `CHRS`).
 - **Confidentiality by construction**: `repr()` of all dataclasses and `str()` / `repr()` of all `PacketError` exceptions expose only structural and numeric metadata, never message text, names, subjects, control values, passwords, or filesystem paths.
 
-## Candidate 0.1.0
+## Version 1.0.0
 
 Initial Type-2/Type-2+ framing, semantic decoding, netmail address resolution and Type-2+ writing. Canonicalize LF/CRLF input to CR wire lines so HPT forwarding preserves control boundaries.
 

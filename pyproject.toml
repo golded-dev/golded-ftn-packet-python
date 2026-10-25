@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "golded-ftn-packet"
-version = "0.1.0"
+version = "1.0.0"
 description = "Streaming FTN Type-2 and Type-2+ packet reader and writer for the GoldED FTN suite"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -17,6 +17,11 @@ classifiers = [
     "Typing :: Typed",
     "Operating System :: OS Independent",
 ]
+
+[project.urls]
+Repository = "https://github.com/golded-dev/golded-ftn-packet-python"
+Issues = "https://github.com/golded-dev/golded-ftn-packet-python/issues"
+Changelog = "https://github.com/golded-dev/golded-ftn-packet-python/blob/main/CHANGELOG.md"
 
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.11", "mypy>=1.15", "build>=1.2", "twine>=6"]

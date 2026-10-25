@@ -1,11 +1,11 @@
 # golded-ftn-packet
 
-Version 0.1.0 candidate. Python 3.12–3.14 on Linux and macOS.
+Version 1.0.0. Python 3.12–3.14 on Linux and macOS.
 
 ## Installation
 
 ```sh
-python -m pip install golded-ftn-packet==0.1.0
+python -m pip install golded-ftn-packet==1.0.0
 ```
 
 The command becomes available after publication. For the unpublished suite, install
